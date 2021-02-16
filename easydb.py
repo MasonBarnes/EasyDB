@@ -1,4 +1,5 @@
 import sqlite3
+import os
 
 def save_db(db):
     db.conn.commit()
@@ -14,6 +15,11 @@ class EasyDB:
         self.cursor = self.conn.cursor()
     def execute(self, *query):
         return self.cursor.execute(*query)
+    def delete(self):
+        os.remove(self.file)
+    def create_table(self, table_name, *column_names):
+        query_1 = "(" + ", ".join(column_names) + ")"
+        self.cursor.execute(f"CREATE TABLE {table_name} {query_1}")
 
 class DBTable:
     def __init__(self, db, table):
