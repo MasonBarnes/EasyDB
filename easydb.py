@@ -51,7 +51,7 @@ class DBKey:
         WHERE
             {self.key} = ?
         ''', (key,))][0]
-        if len(output) == 0:
+        if len(output) == 1:
             output = output[0]
         return output
     def __setitem__(self, key, newvalue):
