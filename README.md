@@ -10,3 +10,12 @@ data = DBTable(db, "info")
 data.insert_values(name="Mark Baker", age=11, grade=5)
 close_db(db)
 ```
+Finding the age of Mark Baker:
+```py
+from easydb import *
+db = EasyDB("students.db")
+data = DBTable(db, "info")
+age = DBKey(data, "name", "age")
+print(age["Mark Baker"])
+# Outputs 11
+```
