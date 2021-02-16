@@ -1,7 +1,7 @@
 # EasyDB
 Easily manage SQLite3 databases in Python without any prior knowledge.
 
-Example:
+Example for initializing database:
 ```py
 from easydb import *
 db = EasyDB("students.db")
@@ -10,7 +10,7 @@ data = DBTable(db, "info")
 data.insert_values(name="Mark Baker", age=11, grade=5)
 close_db(db)
 ```
-Finding the age of Mark Baker:
+Example for getting data from a database:
 ```py
 from easydb import *
 db = EasyDB("students.db")
